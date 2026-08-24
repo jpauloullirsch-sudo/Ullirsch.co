@@ -1,0 +1,2232 @@
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Ullirsch — luxo silencioso brasileiro. Fundada em Caçador, Santa Catarina. Alpen-Serra 2037.">
+
+  <title>ULLIRSCH — O essencial em titânio.</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --titanium: #a7abb0;
+      --titanium-light: #d5d8db;
+      --titanium-dark: #62666b;
+      --navy: #071322;
+      --navy-soft: #0d1b2b;
+      --black: #050607;
+      --white: #f4f5f5;
+      --muted: #9299a1;
+      --border: rgba(213, 216, 219, .18);
+
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Inter", Arial, sans-serif;
+      --display: "Manrope", Arial, sans-serif;
+
+      --max: 1400px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    ::selection {
+      background: var(--titanium);
+      color: var(--navy);
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: .5s var(--ease);
+    }
+
+    header.scrolled {
+      background: rgba(5, 6, 7, .86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: auto;
+      height: 82px;
+      padding: 0 35px;
+
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(244,245,245,.72);
+      transition: .3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 1px;
+      background: var(--titanium);
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .brand {
+      text-align: center;
+      letter-spacing: .45em;
+      font-size: 17px;
+      font-weight: 500;
+      padding-left: .45em;
+    }
+
+    .nav-right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 25px;
+    }
+
+    .nav-right button {
+      border: 0;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .cart-count {
+      color: var(--titanium);
+    }
+
+    .mobile-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+
+      background:
+        radial-gradient(circle at 70% 35%, rgba(35,52,70,.5), transparent 35%),
+        linear-gradient(115deg, #030506 15%, #0b1622 58%, #172535);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(90deg,
+          rgba(0,0,0,.82),
+          rgba(0,0,0,.2) 65%,
+          rgba(0,0,0,.65)),
+        repeating-linear-gradient(
+          110deg,
+          transparent 0,
+          transparent 60px,
+          rgba(255,255,255,.025) 61px
+        );
+    }
+
+    .hero-model {
+      position: absolute;
+      right: 8%;
+      bottom: 0;
+      width: min(42vw, 650px);
+      height: 88vh;
+
+      background:
+        linear-gradient(
+          155deg,
+          transparent 0 15%,
+          rgba(170,175,180,.18) 16% 35%,
+          rgba(8,20,34,.9) 36% 60%,
+          rgba(130,136,141,.22) 61% 100%
+        );
+
+      clip-path: polygon(
+        48% 0,
+        63% 5%,
+        74% 20%,
+        82% 40%,
+        91% 75%,
+        100% 100%,
+        25% 100%,
+        18% 75%,
+        24% 45%,
+        33% 20%
+      );
+
+      opacity: .9;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--max);
+      margin: auto;
+      padding: 0 35px 90px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: var(--titanium-light);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      font-family: var(--display);
+      font-size: clamp(50px, 8vw, 125px);
+      line-height: .88;
+      font-weight: 300;
+      letter-spacing: -.055em;
+    }
+
+    .hero h1 span {
+      color: var(--titanium);
+    }
+
+    .hero-bottom {
+      margin-top: 38px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .hero-description {
+      max-width: 400px;
+      color: #adb2b7;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 25px;
+
+      border: 1px solid rgba(255,255,255,.35);
+      background: transparent;
+      color: white;
+
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+
+      cursor: pointer;
+      transition: .35s var(--ease);
+    }
+
+    .button:hover {
+      background: var(--white);
+      color: var(--black);
+      border-color: white;
+      transform: translateY(-2px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      right: 35px;
+      bottom: 35px;
+
+      writing-mode: vertical-rl;
+
+      font-size: 8px;
+      letter-spacing: .3em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    section {
+      padding: 130px 35px;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: auto;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 65px;
+      gap: 30px;
+    }
+
+    .section-number {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin-top: 12px;
+      font-family: var(--display);
+      font-size: clamp(38px, 5vw, 72px);
+      line-height: .95;
+      font-weight: 300;
+      letter-spacing: -.045em;
+    }
+
+    .section-title em {
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+
+    .section-description {
+      max-width: 370px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       COLLECTION
+    ========================= */
+
+    .collection {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .collection .section-description {
+      color: #686d72;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product {
+      cursor: pointer;
+    }
+
+    .product-image {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          #c3c7ca,
+          #777d82 42%,
+          #0c1928 43%,
+          #0c1928
+        );
+    }
+
+    .product-image::before {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 1px solid rgba(255,255,255,.15);
+      transform: rotate(2deg);
+    }
+
+    .product-image::after {
+      content: "U";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      font-size: 100px;
+      font-weight: 200;
+      color: rgba(255,255,255,.18);
+    }
+
+    .product:nth-child(2) .product-image {
+      background:
+        linear-gradient(
+          140deg,
+          #071322 10%,
+          #102a43 55%,
+          #a8adb1
+        );
+    }
+
+    .product:nth-child(3) .product-image {
+      background:
+        linear-gradient(
+          150deg,
+          #b3b6b9,
+          #686d72 50%,
+          #172535
+        );
+    }
+
+    .product:nth-child(4) .product-image {
+      background:
+        linear-gradient(
+          135deg,
+          #081522,
+          #0d1d2f 50%,
+          #72777c
+        );
+    }
+
+    .product-tag {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      z-index: 2;
+
+      font-size: 8px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 18px;
+      gap: 10px;
+    }
+
+    .product-name {
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .product-price {
+      font-size: 11px;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    /* =========================
+       STORY
+    ========================= */
+
+    .story {
+      background: var(--navy);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 650px;
+    }
+
+    .story-image {
+      position: relative;
+      min-height: 600px;
+
+      background:
+        linear-gradient(
+          130deg,
+          rgba(5,10,15,.15),
+          rgba(5,10,15,.7)
+        ),
+        repeating-linear-gradient(
+          130deg,
+          #71777c 0 3px,
+          #3f464c 4px 7px,
+          #a3a8ac 8px 10px
+        );
+    }
+
+    .story-image::after {
+      content: "CAÇADOR";
+      position: absolute;
+      bottom: 35px;
+      left: 35px;
+      font-size: 10px;
+      letter-spacing: .4em;
+      color: white;
+    }
+
+    .story-content {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .story-content h3 {
+      font-family: var(--display);
+      font-size: clamp(35px, 4vw, 62px);
+      line-height: 1;
+      font-weight: 300;
+      letter-spacing: -.04em;
+      margin: 20px 0 35px;
+    }
+
+    .story-content h3 span {
+      color: var(--titanium);
+    }
+
+    .story-content p {
+      max-width: 470px;
+      color: #a6adb4;
+      line-height: 1.9;
+      font-size: 13px;
+    }
+
+    .story-route {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-top: 45px;
+      color: var(--titanium);
+      font-size: 9px;
+      letter-spacing: .2em;
+    }
+
+    .route-line {
+      width: 60px;
+      height: 1px;
+      background: var(--titanium-dark);
+    }
+
+    /* =========================
+       FIT
+    ========================= */
+
+    .fit {
+      background: #111214;
+    }
+
+    .fit-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 70px;
+    }
+
+    .fit-intro h2 {
+      font-family: var(--display);
+      font-size: clamp(50px, 7vw, 100px);
+      line-height: .85;
+      letter-spacing: -.06em;
+      font-weight: 300;
+    }
+
+    .fit-intro h2 span {
+      color: var(--titanium);
+    }
+
+    .fit-intro p {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 13px;
+      max-width: 420px;
+    }
+
+    .fit-card {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          130deg,
+          #6f7479,
+          #202a34 52%,
+          #06101c
+        );
+    }
+
+    .fit-card-content {
+      position: absolute;
+      inset: auto 40px 40px;
+    }
+
+    .fit-card-content h3 {
+      font-size: 38px;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+
+    .fit-card-content p {
+      color: #c0c4c8;
+      font-size: 12px;
+      max-width: 350px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       BAYERN
+    ========================= */
+
+    .bayern {
+      background: #050505;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bayern::before {
+      content: "MÜNCHEN";
+      position: absolute;
+      right: -60px;
+      top: 100px;
+
+      font-size: clamp(100px, 18vw, 270px);
+      font-weight: 700;
+      letter-spacing: -.08em;
+
+      color: rgba(255,255,255,.025);
+      pointer-events: none;
+    }
+
+    .bayern-grid {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .bayern-visual {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(170,175,180,.15),
+          transparent 45%
+        );
+    }
+
+    .jersey {
+      width: 330px;
+      height: 430px;
+      position: relative;
+
+      background:
+        linear-gradient(
+          90deg,
+          #9fa4a8,
+          #d0d3d5 48%,
+          #8c9196
+        );
+
+      clip-path: polygon(
+        25% 0,
+        40% 7%,
+        60% 7%,
+        75% 0,
+        100% 17%,
+        87% 40%,
+        78% 30%,
+        78% 100%,
+        22% 100%,
+        22% 30%,
+        13% 40%,
+        0 17%
+      );
+
+      box-shadow: 0 35px 100px rgba(0,0,0,.8);
+    }
+
+    .jersey::before {
+      content: "ULLIRSCH";
+      position: absolute;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-size: 16px;
+      letter-spacing: .25em;
+      color: #071322;
+      white-space: nowrap;
+    }
+
+    .jersey::after {
+      content: "MÜNCHEN";
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-size: 10px;
+      letter-spacing: .35em;
+      color: #071322;
+    }
+
+    .bayern-content .eyebrow {
+      color: var(--titanium);
+    }
+
+    .bayern-content h2 {
+      font-family: var(--display);
+      font-size: clamp(50px, 7vw, 100px);
+      line-height: .86;
+      letter-spacing: -.06em;
+      font-weight: 300;
+      margin: 20px 0 35px;
+    }
+
+    .bayern-content p {
+      color: var(--muted);
+      max-width: 430px;
+      line-height: 1.9;
+      font-size: 13px;
+      margin-bottom: 35px;
+    }
+
+    /* =========================
+       MANIFESTO
+    ========================= */
+
+    .manifesto {
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #172434,
+          #06080b 65%
+        );
+    }
+
+    .manifesto-content {
+      max-width: 1000px;
+    }
+
+    .manifesto-mark {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 50px;
+
+      border-left: 1px solid var(--titanium);
+      border-right: 1px solid var(--titanium);
+      transform: skewY(-20deg);
+    }
+
+    .manifesto blockquote {
+      font-family: var(--serif);
+      font-size: clamp(35px, 5vw, 72px);
+      line-height: 1.15;
+      font-weight: 400;
+    }
+
+    .manifesto small {
+      display: block;
+      margin-top: 35px;
+      color: var(--titanium);
+      font-size: 9px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       FASHION WEEK
+    ========================= */
+
+    .fashion-week {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .fashion-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      background: #111;
+    }
+
+    .fashion-panel {
+      min-height: 500px;
+      position: relative;
+      padding: 30px;
+      display: flex;
+      align-items: flex-end;
+
+      background:
+        linear-gradient(
+          140deg,
+          #9da2a6,
+          #242b32
+        );
+    }
+
+    .fashion-panel:nth-child(2) {
+      background:
+        linear-gradient(
+          140deg,
+          #071322,
+          #263b51
+        );
+    }
+
+    .fashion-panel:nth-child(3) {
+      background:
+        linear-gradient(
+          140deg,
+          #d2d5d7,
+          #555b60
+        );
+    }
+
+    .fashion-panel div {
+      color: white;
+    }
+
+    .fashion-panel h3 {
+      font-size: 30px;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+
+    .fashion-panel p {
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      opacity: .7;
+    }
+
+    /* =========================
+       NEWSLETTER
+    ========================= */
+
+    .newsletter {
+      background: var(--navy);
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-family: var(--display);
+      font-weight: 300;
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -.05em;
+    }
+
+    .newsletter p {
+      margin: 20px auto 35px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .newsletter-form {
+      max-width: 520px;
+      margin: auto;
+      display: flex;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: white;
+      padding: 18px 0;
+      font-size: 12px;
+    }
+
+    .newsletter-form button {
+      border: 0;
+      background: transparent;
+      color: var(--titanium);
+      cursor: pointer;
+      letter-spacing: .18em;
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #030405;
+      border-top: 1px solid var(--border);
+      padding: 65px 35px 30px;
+    }
+
+    .footer-grid {
+      max-width: var(--max);
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 50px;
+    }
+
+    .footer-brand {
+      font-size: 20px;
+      letter-spacing: .45em;
+      padding-left: .45em;
+    }
+
+    .footer-column h4 {
+      color: var(--muted);
+      font-size: 8px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 11px;
+      color: #c0c4c7;
+      transition: .2s;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      max-width: var(--max);
+      margin: 70px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+
+      display: flex;
+      justify-content: space-between;
+
+      color: #5f6469;
+      font-size: 8px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       CART
+    ========================= */
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(8px);
+
+      opacity: 0;
+      visibility: hidden;
+      transition: .35s;
+    }
+
+    .cart-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      width: min(440px, 100%);
+      height: 100%;
+
+      background: #0c1014;
+      border-left: 1px solid var(--border);
+
+      padding: 30px;
+
+      transform: translateX(100%);
+      transition: .45s var(--ease);
+    }
+
+    .cart-overlay.active .cart {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-header h3 {
+      font-size: 12px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .close {
+      background: transparent;
+      border: 0;
+      color: white;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    .cart-items {
+      padding: 25px 0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .cart-item-name {
+      font-size: 11px;
+    }
+
+    .cart-item-price {
+      color: var(--titanium);
+      font-size: 10px;
+    }
+
+    .cart-total {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .empty {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       PRODUCT MODAL
+    ========================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+
+      background: rgba(0,0,0,.82);
+      backdrop-filter: blur(12px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s;
+      padding: 25px;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      width: min(850px, 100%);
+      background: #101418;
+      border: 1px solid var(--border);
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      transform: translateY(30px);
+      transition: .4s var(--ease);
+    }
+
+    .modal.active .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-image {
+      min-height: 520px;
+      background:
+        linear-gradient(
+          145deg,
+          #bdc1c4,
+          #636a70 45%,
+          #0b1929
+        );
+    }
+
+    .modal-info {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .modal-info h2 {
+      font-size: 35px;
+      font-weight: 300;
+      margin: 12px 0;
+    }
+
+    .modal-info p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 12px;
+      margin-bottom: 25px;
+    }
+
+    .modal-price {
+      color: var(--titanium);
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 1s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .nav {
+        grid-template-columns: auto 1fr auto;
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 82px;
+        padding: 25px;
+        background: #050607;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .hero-content {
+        padding: 0 20px 70px;
+      }
+
+      .hero-model {
+        right: -15%;
+        width: 70vw;
+        opacity: .55;
+      }
+
+      section {
+        padding: 90px 20px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story-grid,
+      .bayern-grid,
+      .fit-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .story-content {
+        padding: 50px 30px;
+      }
+
+      .fashion-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .fashion-panel {
+        min-height: 350px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .modal-box {
+        grid-template-columns: 1fr;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .modal-image {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .brand {
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 55px;
+      }
+
+      .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .modal-info {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header id="header">
+
+    <nav class="nav">
+
+      <button class="mobile-toggle" id="menuToggle" aria-label="Abrir menu">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#story">Maison</a></li>
+        <li><a href="#fit">Fit</a></li>
+        <li><a href="#fashion">Fashion Week</a></li>
+      </ul>
+
+      <a href="#" class="brand">ULLIRSCH</a>
+
+      <div class="nav-right">
+        <button id="openCart">
+          Bag <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="hero-model"></div>
+
+      <div class="hero-content reveal">
+
+        <div class="eyebrow">
+          Alpen-Serra · 2037
+        </div>
+
+        <h1>
+          O essencial<br>
+          em <span>titânio.</span>
+        </h1>
+
+        <div class="hero-bottom">
+
+          <p class="hero-description">
+            Do frio da Serra Catarinense aos Alpes.
+            Uma nova interpretação do luxo silencioso,
+            criada em Caçador e apresentada ao mundo.
+          </p>
+
+          <a href="#collection" class="button">
+            Descobrir coleção
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator">
+        Scroll · 01 / 07
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         COLLECTION
+    ========================== -->
+
+    <section class="collection" id="collection">
+
+      <div class="container">
+
+        <div class="section-header reveal">
+
+          <div>
+            <div class="section-number">01 · Collection</div>
+
+            <h2 class="section-title">
+              Alpen-<em>Serra</em>
+            </h2>
+          </div>
+
+          <p class="section-description">
+            Titânio fosco, azul-marinho profundo e
+            materiais desenvolvidos para atravessar
+            cidades, estações e gerações.
+          </p>
+
+        </div>
+
+
+        <div class="products">
+
+          <article class="product reveal"
+                   data-name="Calça Alpen"
+                   data-price="890">
+
+            <div class="product-image">
+              <span class="product-tag">01 · 04</span>
+            </div>
+
+            <div class="product-info">
+              <span class="product-name">Calça Alpen</span>
+              <span class="product-price">€890</span>
+            </div>
+
+          </article>
+
+
+          <article class="product reveal"
+                   data-name="Camisa Serra"
+                   data-price="620">
+
+            <div class="product-image">
+              <span class="product-tag">02 · 04</span>
+            </div>
+
+            <div class="product-info">
+              <span class="product-name">Camisa Serra</span>
+              <span class="product-price">€620</span>
+            </div>
+
+          </article>
+
+
+          <article class="product reveal"
+                   data-name="Jaqueta Nebel"
+                   data-price="1780">
+
+            <div class="product-image">
+              <span class="product-tag">03 · 04</span>
+            </div>
+
+            <div class="product-info">
+              <span class="product-name">Jaqueta Nebel</span>
+              <span class="product-price">€1.780</span>
+            </div>
+
+          </article>
+
+
+          <article class="product reveal"
+                   data-name="Bolsa Caçador"
+                   data-price="2400">
+
+            <div class="product-image">
+              <span class="product-tag">04 · 04</span>
+            </div>
+
+            <div class="product-info">
+              <span class="product-name">Bolsa Caçador</span>
+              <span class="product-price">€2.400</span>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         STORY
+    ========================== -->
+
+    <section class="story" id="story">
+
+      <div class="container">
+
+        <div class="story-grid">
+
+          <div class="story-image reveal"></div>
+
+          <div class="story-content reveal">
+
+            <div class="section-number">
+              02 · Maison
+            </div>
+
+            <h3>
+              Nascida em <span>Caçador.</span><br>
+              Criada para o mundo.
+            </h3>
+
+            <p>
+              Fundada em 2029, em Caçador, Santa Catarina,
+              a Ullirsch nasceu longe dos grandes centros
+              tradicionais da moda.
+            </p>
+
+            <p style="margin-top:20px;">
+              O encontro entre o couro, a lã, a tradição
+              madeireira da região e o savoir-faire europeu
+              tornou-se a base de uma nova linguagem:
+              o luxo silencioso brasileiro.
+            </p>
+
+            <div class="story-route">
+              CAÇADOR
+              <span class="route-line"></span>
+              MILANO
+              <span class="route-line"></span>
+              MÜNCHEN
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FIT
+    ========================== -->
+
+    <section class="fit" id="fit">
+
+      <div class="container">
+
+        <div class="fit-intro reveal">
+
+          <h2>
+            Ullirsch<br>
+            <span>Fit.</span>
+          </h2>
+
+          <p>
+            A linha criada para aproximar a Ullirsch de
+            quem trabalha, estuda, treina, cria e constrói.
+            Design, tecnologia e identidade sem transformar
+            cada camiseta numa prestação de financiamento.
+          </p>
+
+        </div>
+
+
+        <div class="fit-card reveal">
+
+          <div class="fit-card-content">
+
+            <div class="eyebrow">
+              Performance · Urban
+            </div>
+
+            <h3>
+              Feita para quem faz.
+            </h3>
+
+            <p>
+              Silhuetas amplas, tecidos técnicos,
+              conforto e a mesma precisão estética
+              da maison.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BAYERN
+    ========================== -->
+
+    <section class="bayern">
+
+      <div class="container">
+
+        <div class="bayern-grid">
+
+          <div class="bayern-visual reveal">
+
+            <div class="jersey"></div>
+
+          </div>
+
+
+          <div class="bayern-content reveal">
+
+            <div class="eyebrow">
+              München · Football
+            </div>
+
+            <h2>
+              Precisão<br>
+              dentro e<br>
+              <span style="color:var(--titanium)">
+                fora de campo.
+              </span>
+            </h2>
+
+            <p>
+              Uma colaboração imaginada entre a Ullirsch
+              e o futebol de Munique: performance, alfaiataria
+              e a precisão do design alemão reinterpretados
+              pela identidade brasileira da maison.
+            </p>
+
+            <a href="#fashion" class="button">
+              Explorar colaboração
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MANIFESTO
+    ========================== -->
+
+    <section class="manifesto">
+
+      <div class="manifesto-content reveal">
+
+        <div class="manifesto-mark"></div>
+
+        <blockquote>
+          “Grandes sonhos também podem
+          nascer em lugares inesperados.”
+        </blockquote>
+
+        <small>
+          Ullirsch · Caçador · Santa Catarina
+        </small>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FASHION WEEK
+    ========================== -->
+
+    <section class="fashion-week" id="fashion">
+
+      <div class="container">
+
+        <div class="section-header reveal">
+
+          <div>
+
+            <div class="section-number">
+              03 · Fashion Week
+            </div>
+
+            <h2 class="section-title">
+              Ullirsch <em>Fashion Week</em>
+            </h2>
+
+          </div>
+
+          <p class="section-description">
+            München, 2037. A coleção Alpen-Serra
+            apresentada pela primeira vez ao mundo.
+          </p>
+
+        </div>
+
+
+        <div class="fashion-layout">
+
+          <article class="fashion-panel reveal">
+            <div>
+              <h3>Silêncio.</h3>
+              <p>Titanium Study I</p>
+            </div>
+          </article>
+
+          <article class="fashion-panel reveal">
+            <div>
+              <h3>Precisão.</h3>
+              <p>Alpen-Serra · München</p>
+            </div>
+          </article>
+
+          <article class="fashion-panel reveal">
+            <div>
+              <h3>Resistência.</h3>
+              <p>Ullirsch Fit</p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         NEWSLETTER
+    ========================== -->
+
+    <section class="newsletter">
+
+      <div class="container reveal">
+
+        <div class="eyebrow">
+          Private Access
+        </div>
+
+        <h2>
+          Entre na Ullirsch.
+        </h2>
+
+        <p>
+          Novas coleções, apresentações e lançamentos.
+        </p>
+
+        <form class="newsletter-form" id="newsletter">
+
+          <input
+            type="email"
+            placeholder="Seu endereço de e-mail"
+            required
+            aria-label="Seu endereço de e-mail">
+
+          <button type="submit">
+            Inscrever
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-brand">
+          ULLIRSCH
+        </div>
+
+        <p style="
+          color:#686e74;
+          font-size:10px;
+          line-height:1.8;
+          max-width:260px;
+          margin-top:20px;
+        ">
+          O essencial em titânio.
+          <br>
+          Caçador · Santa Catarina · Brasil
+        </p>
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>Collections</h4>
+
+        <a href="#collection">Alpen-Serra</a>
+        <a href="#fit">Ullirsch Fit</a>
+        <a href="#fashion">Fashion Week</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>Maison</h4>
+
+        <a href="#story">Nossa história</a>
+        <a href="#fashion">München 2037</a>
+        <a href="#">Ateliers</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>Contact</h4>
+
+        <a href="#">Instagram</a>
+        <a href="#">Press</a>
+        <a href="#">Private Client</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2037 Ullirsch
+      </span>
+
+      <span>
+        Made in Brazil · Designed for the world
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       CART
+  ========================== -->
+
+  <div class="cart-overlay" id="cartOverlay">
+
+    <aside class="cart">
+
+      <div class="cart-header">
+
+        <h3>
+          Your Bag
+        </h3>
+
+        <button class="close" id="closeCart">
+          ×
+        </button>
+
+      </div>
+
+      <div class="cart-items" id="cartItems">
+
+        <p class="empty">
+          Sua seleção está vazia.
+        </p>
+
+      </div>
+
+      <div class="cart-total">
+
+        <span>Total</span>
+
+        <strong id="cartTotal">
+          €0
+        </strong>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  <!-- =========================
+       PRODUCT MODAL
+  ========================== -->
+
+  <div class="modal" id="productModal">
+
+    <div class="modal-box">
+
+      <div class="modal-image"></div>
+
+      <div class="modal-info">
+
+        <div class="eyebrow">
+          Ullirsch · Alpen-Serra
+        </div>
+
+        <h2 id="modalName">
+          Produto
+        </h2>
+
+        <div class="modal-price" id="modalPrice">
+          €0
+        </div>
+
+        <p>
+          Uma peça desenvolvida dentro da linguagem
+          Ullirsch: materiais premium, linhas limpas,
+          proporções contemporâneas e acabamento
+          extremamente discreto.
+        </p>
+
+        <button class="button" id="addToCart">
+          Adicionar à bag
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+      header.classList.toggle(
+        "scrolled",
+        window.scrollY > 40
+      );
+    });
+
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a")
+      .forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+        });
+      });
+
+
+    /* =========================
+       REVEAL ANIMATION
+    ========================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: .12
+        }
+      );
+
+    revealElements.forEach(element => {
+      observer.observe(element);
+    });
+
+
+    /* =========================
+       PRODUCT MODAL
+    ========================== */
+
+    const products =
+      document.querySelectorAll(".product");
+
+    const modal =
+      document.getElementById("productModal");
+
+    const modalName =
+      document.getElementById("modalName");
+
+    const modalPrice =
+      document.getElementById("modalPrice");
+
+    let selectedProduct = null;
+
+    products.forEach(product => {
+
+      product.addEventListener("click", () => {
+
+        selectedProduct = {
+          name: product.dataset.name,
+          price: Number(product.dataset.price)
+        };
+
+        modalName.textContent =
+          selectedProduct.name;
+
+        modalPrice.textContent =
+          formatPrice(selectedProduct.price);
+
+        modal.classList.add("active");
+
+      });
+
+    });
+
+
+    modal.addEventListener("click", event => {
+
+      if (event.target === modal) {
+        modal.classList.remove("active");
+      }
+
+    });
+
+
+    /* =========================
+       CART
+    ========================== */
+
+    let cart = [];
+
+    const cartOverlay =
+      document.getElementById("cartOverlay");
+
+    const cartItems =
+      document.getElementById("cartItems");
+
+    const cartCount =
+      document.getElementById("cartCount");
+
+    const cartTotal =
+      document.getElementById("cartTotal");
+
+
+    function formatPrice(value) {
+
+      return new Intl.NumberFormat(
+        "de-DE",
+        {
+          style: "currency",
+          currency: "EUR",
+          maximumFractionDigits: 0
+        }
+      ).format(value);
+
+    }
+
+
+    function renderCart() {
+
+      cartCount.textContent = cart.length;
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+          <p class="empty">
+            Sua seleção está vazia.
+          </p>
+        `;
+
+        cartTotal.textContent = "€0";
+
+        return;
+      }
+
+
+      cartItems.innerHTML = "";
+
+      let total = 0;
+
+
+      cart.forEach((item, index) => {
+
+        total += item.price;
+
+        const element =
+          document.createElement("div");
+
+        element.className = "cart-item";
+
+        element.innerHTML = `
+          <span class="cart-item-name">
+            ${item.name}
+          </span>
+
+          <span class="cart-item-price">
+            ${formatPrice(item.price)}
+          </span>
+        `;
+
+        cartItems.appendChild(element);
+
+      });
+
+
+      cartTotal.textContent =
+        formatPrice(total);
+
+    }
+
+
+    document
+      .getElementById("addToCart")
+      .addEventListener("click", () => {
+
+        if (!selectedProduct) return;
+
+        cart.push(selectedProduct);
+
+        renderCart();
+
+        modal.classList.remove("active");
+
+        cartOverlay.classList.add("active");
+
+      });
+
+
+    document
+      .getElementById("openCart")
+      .addEventListener("click", () => {
+
+        cartOverlay.classList.add("active");
+
+      });
+
+
+    document
+      .getElementById("closeCart")
+      .addEventListener("click", () => {
+
+        cartOverlay.classList.remove("active");
+
+      });
+
+
+    cartOverlay.addEventListener("click", event => {
+
+      if (event.target === cartOverlay) {
+        cartOverlay.classList.remove("active");
+      }
+
+    });
+
+
+    /* =========================
+       NEWSLETTER
+    ========================== */
+
+    document
+      .getElementById("newsletter")
+      .addEventListener("submit", event => {
+
+        event.preventDefault();
+
+        const button =
+          event.target.querySelector("button");
+
+        button.textContent = "Registrado";
+
+        button.style.color = "#f4f5f5";
+
+        event.target.reset();
+
+      });
+
+
+    /* =========================
+       ESC KEY
+    ========================== */
+
+    document.addEventListener("keydown", event => {
+
+      if (event.key === "Escape") {
+
+        modal.classList.remove("active");
+
+        cartOverlay.classList.remove("active");
+
+        navLinks.classList.remove("open");
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
+```
